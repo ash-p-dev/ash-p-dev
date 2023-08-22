@@ -20,7 +20,7 @@
   }
 
   .welcome-block {
-    border: 2px ridge white;
+    border: 2px ridge rgb(0, 238, 255);
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -36,7 +36,7 @@
     height: 400px;
     z-index: 1;
     overflow: hidden; /* Ensure the particles stay inside the block */
-    background-image: linear-gradient(to right, #7300ff, #000000,#8c00ff, #000000,#8c00ff);
+    background-image: linear-gradient(to right, #00ffff, #000000,#09ffef, #000000,#00ffe5);
   background-size: 200% 100%;
   animation: waveColorChange 6s linear infinite;
   }
@@ -88,11 +88,111 @@
     display: inline-block;
     perspective: 800px;
   }
+  
+  @keyframes glow-left {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glow-right {
+            0% {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .glow-line {
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: alternate;
+            position: absolute;
+            height: 15px;
+            width: 33.33%;
+            border:5px inset rgb(0, 0, 0);
+        }
+
+        .glow-line:nth-child(1) {
+            left: 0;
+            top: 30%;
+            transform-origin: left;
+            animation-name: glow-left;
+            background-color: red;
+        }
+
+
+        .glow-line:nth-child(2) {
+            left: 0;
+            top: 50%; 
+            transform-origin: left;
+            animation-name: glow-left;
+            background-color: rgb(255, 255, 255);
+            transform: translateY(-50%);
+            box-shadow: -10px 10px 20px rgba(237, 237, 237, 0.989);
+        }
+
+        .glow-line:nth-child(3) {
+            left: 0;
+            top: 70%; 
+            transform-origin: left;
+            animation-name: glow-left;
+            background-color: rgb(0, 255, 204);
+            transform: translateY(-50%);
+            box-shadow: -10px 10px 20px rgba(127, 255, 253, 0.989);
+        }
+
+        .glow-line:nth-child(4) {
+            left: 0;
+            top: 30%; 
+            transform-origin: right;
+            animation-name: glow-left;
+            background-color: yellow;
+            transform: translateY(-25%);
+            box-shadow: -10px 10px 20px rgba(218, 255, 6, 0.989);
+        }
+
+        .glow-line:nth-child(5) {
+            right: 0;
+            top: 50%; 
+            transform-origin: right;
+            animation-name: glow-right;
+            background-color: rgb(255, 255, 255);
+            transform: translateY(-25%);
+            box-shadow: -10px 10px 20px rgba(255, 255, 255, 0.989);
+        }
+
+        .glow-line:nth-child(6) {
+            right: 0;
+            top: 70%; 
+            transform-origin: right;
+            animation-name: glow-right;
+            background-color: rgb(255, 0, 183);
+            transform: translateY(-25%);
+            box-shadow: -10px 10px 20px rgba(255, 162, 240, 0.989);
+        }
+        .glow-line:nth-child(7) {
+            right: 0;
+            top: 30%; 
+            transform-origin: right;
+            animation-name: glow-right;
+            background-color: rgb(255, 0, 0);
+            transform: translateY(-25%);
+            box-shadow: -10px 10px 20px rgba(233, 77, 77, 0.989);
+        }
     </style>
 </head>
 
 <body>
-  <header class="text-gray-400 bg-gray-900 body-font">
+  <header class="text-gray-400 bg-gray-900 body-font" style="background-image: url('/images/555.jpg'); background-size:cover; background-position: right;">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
       <a href="index.html" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -100,7 +200,7 @@
         </svg>        
         <span class="ml-3 text-xl ">Portfolio-Ashish</span>
       </a>
-      <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
+      <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center" >
         <a href="index.html" class="mr-5 hover:text-white">Home</a>
         <a href="projects.html" class="mr-5 hover:text-white">Projects</a>
         <a href="about.html" class="mr-5 hover:text-white">About</a>
@@ -119,16 +219,25 @@
       <p>Hi, I am a <span class="flip-word">programmer</span> exploring the world of coding.</p>
     </div>
   </div>   
-    <main>
-       
-      <section class="bg-gray-900 text-white py-20">
-        <div class="container mx-auto text-center">
-          <h2 class="text-3xl font-bold mb-4">Explore My Projects</h2>
-          <p class="text-lg mb-8">Step into a world of creativity and innovation. Discover some of the exciting projects that showcase my skills and expertise:</p>
-          <a href="projects.html"
-            class="bg-white text-gray-900 py-2 px-6 rounded-lg font-semibold uppercase tracking-wide hover:bg-gray-100">View Projects</a>
+    <main>  
+      <section class="bg-gray-900 text-white py-20 relative overflow-hidden"  style="background-image: url('/images/555.jpg'); background-size:cover; background-position: center;">
+        <div class="mx-auto max-w-lg p-4 relative">>
+            <h2 class="text-3xl font-bold mb-4">Explore My Projects</h2>
+            <p class="text-lg mb-8">Step into a world of creativity and innovation. Discover some of the exciting projects that showcase my skills and expertise:</p>
+            <a href="projects.html"
+                class="bg-white text-gray-900 py-2 px-6 rounded-lg font-semibold uppercase tracking-wide hover:bg-gray-100">View Projects</a>
         </div>
-      </section>
+        
+        <!-- Left Lines -->
+        <div class="absolute left-0 top-1/2 glow-line"></div>
+        <div class="absolute left-0 bottom-1/6 glow-line"></div>
+        <div class="absolute right-0 bottom-1/6 glow-line"></div>
+    
+        <!-- Right Lines -->
+        <div class="absolute right-0 top-1/6  glow-line"></div>
+        <div class="absolute right-0 top-1/2 glow-line"></div>
+        <div class="absolute right-0 bottom-1/6 glow-line"></div>
+    </section>
       
           <div class="relative isolate overflow-hidden bg-gray-700 py-24 sm:py-32">
             <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center">
@@ -193,7 +302,7 @@
               <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Get in touch with me.</h2>
               <p class="mt-4 text-lg leading-8 text-gray-300">Have questions or want to collaborate? Feel free to reach out to me using the form below.</p>
               <a href="contact.html" class="mt-6 flex max-w-md gap-x-4">
-                <button class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Contact Form</button>
+                <button class="flex-none rounded-md bg-green-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Contact Form</button>
               </a>
             </div>
             <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
@@ -265,7 +374,7 @@
 
 
 
-<footer class="bg-gray-900 text-white body-font">
+<footer class="bg-gray-900 text-white body-font" style="background-image: url('/images/555.jpg'); background-size:cover; background-position: right;">
   <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
     <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
